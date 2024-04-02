@@ -1,0 +1,74 @@
+<p>user-list works!</p>
+<div>
+  <h2 class="heading">User List</h2>
+  <ul class="user-list">
+    <li *ngFor="let user of users" class="user-list-item" (click)="selectUser(user)">
+      <span> {{ user.name }}</span>
+    </li>
+  </ul>
+
+  <div *ngIf="showAddUserForm">
+    <h2>Add New User</h2>
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="newUser.name" required>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="newUser.email" required>
+      </div>
+      <br />
+      <button class="button" type="submit" [disabled]="userForm.invalid">Submit</button>
+      <br />
+      <br />
+    </form>
+  </div>
+
+  <div *ngIf="selectedUser">
+    <!-- ngIf directive to conditionally render the user information -->
+    <h2 class="heading">Edit User Details</h2>
+    <p>
+      <span class="field-label">Name:</span>
+      <input class="input-field" type="text" [(ngModel)]="selectedUser.name" [disabled]="!isEditingName">
+      <button class="button" (click)="toggleEditNameMode()">
+        <i class="fas fa-pencil-alt"></i>
+      </button>
+      <button *ngIf="isSpeechSynthesisSupported()" class="button" (click)="speakText(selectedUser.name)">
+        Speak
+      </button>
+    </p> <!-- Displaying the user's name -->
+    <p>
+      <span class="field-label">Email:</span>
+      <input class="input-field" type="text" [(ngModel)]="selectedUser.email" [disabled]="!isEditingEmail">
+    <button class="button" (click)="toggleEditEmailMode()">
+      <i class="fas fa-pencil-alt"></i>
+      </button>
+    </p> <!-- Displaying the user's email -->
+    <button class="button" [style]="getUpdateButtonStyle()" (click)="updateUser()" [disabled]="!isEditingName && !isEditingEmail">Update</button>
+    <button class="button" (click)="deleteUser(selectedUser.id)">Delete</button>
+    <h3 *ngIf="selectedUser.insurancePolicies.length > 0"></h3> <!-- Check if the array length is greater than 0 -->
+    <h2 class="heading">Insurance Policies Details</h2>
+    <ul class="policy-list">
+      <li *ngFor="let policy of selectedUser.insurancePolicies" class="insurance-policy">
+        <!-- ngFor directive to iterate over each insurance policy -->
+        <div class="policy-info">
+          <span class="policy-number">Policy Number:</span> {{ policy.policyNumber }} <!-- Displaying the policy number -->
+        </div>
+        <div class="policy-info">
+          <span class="policy-amount">Insurance Amount:</span> {{ policy.insuranceAmount }} <!-- Displaying the insurance amount -->
+        </div>
+        <div class="policy-info">
+          <span class="policy-dates">Start Date:</span> {{ policy.startDate | date:'dd/MM/yyyy' }} <!-- Displaying the start date of the policy -->
+        </div>
+        <div class="policy-info">
+          <span class="policy-dates">End Date:</span> {{ policy.endDate | date:'dd/MM/yyyy' }} <!-- Displaying the end date of the policy -->
+        </div>
+      </li>
+    </ul>
+    <p *ngIf="selectedUser.insurancePolicies.length === 0">No insurance policies found.</p> <!-- Display a message if no policies found -->
+  </div>
+
+  <button class="button" (click)="addUser()">Add User</button>
+  <button class="button" (click)="refreshUsers()">Refresh</button>
+</div>

@@ -1,0 +1,101 @@
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+/* Style the heading */
+.heading {
+  font-size: 24px; /* Adjust font size */
+  color: #333; /* Set text color */
+  margin-bottom: 20px; /* Add bottom margin for spacing */
+  background-color: #f0f0f0; /* Set background color */
+  padding: 10px; /* Add padding for spacing around the text */
+}
+
+/* Style the entire list */
+.user-list, .policy-list {
+  list-style-type: none; /* Remove default bullet points */
+  padding: 0;
+}
+
+/* Style each list item */
+.user-list-item {
+  cursor: pointer; /* Change cursor to pointer on hover */
+  padding: 10px; /* Add some padding around each item */
+  margin-bottom: 5px; /* Add margin between items */
+  border: 1px solid #ccc; /* Add border for visual separation */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  transition: background-color 0.3s; /* Add transition effect on hover */
+}
+
+  /* Change background color on hover */
+  .user-list-item:hover {
+    background-color: #f0f0f0;
+  }
+
+/* Style the buttons */
+.button {
+  padding: 10px; /* Add padding around the text */
+  margin: 10px; /* Add margin between buttons */
+  font-size: 16px; /* Adjust font size */
+  background-color: #007bff; /* Set background color */
+  color: #fff; /* Set text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s; /* Add transition effect on hover */
+}
+
+  /* Change background color on hover */
+  .button:hover {
+    background-color: #0056b3;
+  }
+
+/* Style the input */
+.input-field {
+  width: 50%; /* Set the width of the input field */
+  padding: 10px; /* Add padding for spacing inside the input field */
+  margin: 10px;
+  font-size: 16px; /* Adjust font size */
+  border: 1px solid #ccc; /* Add border */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+  /* Style the disabled input */
+  .input-field[disabled] {
+    background-color: #f0f0f0; /* Set background color for disabled state */
+    color: #666; /* Set text color for disabled state */
+  }
+
+.field-label {
+  font-weight: bold; /* Make the label bold */
+  background-color: #f0f0f0; /* Set background color */
+  padding: 5px 10px; /* Add padding */
+  border-radius: 5px; /* Add border radius */
+}
+
+.insurance-policy {
+  margin-bottom: 20px; /* Add margin between each policy */
+  padding: 10px; /* Add padding around each policy */
+  border: 1px solid #ccc; /* Add border to separate policies */
+  border-radius: 5px; /* Add border radius for rounded corners */
+}
+
+.policy-info {
+  font-size: 16px; /* Adjust font size */
+  margin-bottom: 5px; /* Add margin between policy info */
+}
+
+.policy-number {
+  font-weight: bold; /* Make policy number bold */
+}
+
+.policy-dates {
+  color: #888; /* Adjust color for dates */
+}
+
+
+
+
+
+
